@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>replit</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <!--Katex-->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css" integrity="sha384-wcIxkf4k558AjM3Yz3BBFQUbk/zgIYC2R0QpeeYb+TwlBVMrlgLqwRjRtGZiK7ww" crossorigin="anonymous">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js" integrity="sha384-hIoBPJpTUs74ddyc4bFZSM1TVlQDA60VBbJS0oA934VSz82sBx1X7kSx2ATBDIyd" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js" integrity="sha384-43gviWU0YVjaDtb/GhzOouOXtZMP/7XUzwPTstBeZFe/+rCMvRwr4yROQP43s0Xk" crossorigin="anonymous"></script>
+  <!--pixelmatch & html2canvas-->
+  <script src="https://bundle.run/pixelmatch@5.2.1"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+
+<body>
+  <h2 id="math1_title">Sample #1</h2>
+  <h3>Input</h3>
+  <p id="math1_1">
+    Hence we have $p(x) = x^2 - \frac{1}{2}\left(\frac{1}{x} - x + 1\right)$.
+  </p>
+  <h3>Expected</h3>
+  <p id="math1_2">Hence we have $p(x) = x^2-\frac{1}{2}\left(\frac{1}{ x} -x+1 \right)$.&nbsp;</p>
+  <h3>Diff result</h3>
+  <div id="math1_diff"></div>
+  <hr>
+  <h2 id="math2_title">Sample #2</h2>
+  <h3>Input</h3>
+  <p id="math2_1">
+    Hence we have $p(x) = 2  +\frac{3}{2}\left(\frac{x}{x^2+1} - 1\right)$.
+  </p>
+  <h3>Expected</h3>
+  <p id="math2_2">Hence we have $p(x) = 2+\frac{3}{2 }(\frac{x}{x^2 + 1} -1) $.</p>
+  <h3>Diff result</h3>
+  <div id="math2_diff"></div>
+  <hr>
+  <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <script src="https://bundle.run/pixelmatch@5.2.1"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <style>
+  p, canvas {
+    border: 1px solid red;
+  }
+  </style>
+</head>
+<body>
+  <p>Foobar</p>
+  <p>Foobaz</p>
+
+<script>
+(async () => {
+  const [aEl, bEl] = document.querySelectorAll("p");
+  const aCanvas = await html2canvas(aEl);
+  const bCanvas = await html2canvas(bEl);
+  const aCtx = aCanvas.getContext("2d");
+  const bCtx = bCanvas.getContext("2d");
+  const {width: w, height: h} = aCanvas;
+  const diffCanvas = document.createElement("canvas");
+  document.body.appendChild(diffCanvas);
+  diffCanvas.width = w;
+  diffCanvas.height = h;
+  const diffCtx = diffCanvas.getContext("2d");
+  const diffImageData = diffCtx.createImageData(w, h);
+  const mismatchedPixels = pixelmatch(
+    aCtx.getImageData(0, 0, w, h).data,
+    bCtx.getImageData(0, 0, bCanvas.width, bCanvas.height).data,
+    diffImageData.data,
+    w, h, {threshold: 0.1}
+  );
+  diffCtx.putImageData(diffImageData, 0, 0);
+  console.log(mismatchedPixels);
+})();
+</script>
+</body>
+</html>
